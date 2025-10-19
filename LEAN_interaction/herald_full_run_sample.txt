@@ -1,0 +1,3994 @@
+**  Removing old project...
+**  Initialising empty Lean project...
+✓ Lean version verified to be leanprover/lean4:v4.11.0
+
+
+
+   ================================================================================
+[✓] row 0
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Logic.Equiv.Set
+   import Mathlib.Order.RelIso.Set
+   import Mathlib.Order.WellFounded
+   import Mathlib.Order.InitialSeg
+
+   namespace myNameSpace
+
+
+   open InitialSeg
+   variable {α : Type*} {β : Type*} {γ : Type*} {r : α → α → Prop} {s : β → β → Prop}
+     {t : γ → γ → Prop}
+   open Function
+
+   theorem InitialSeg.eq [IsWellOrder β s] (f g : r ≼i s) (a) : f a = g a := by
+     rw [Subsingleton.elim f g]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [Subsingleton.elim f g]",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "α : Type u_1 β : Type u_2 r : α → α → Prop s : β → β → Prop inst✝ : IsWellOrder β s f g : r ≼i s a : α ⊢ f a = g a",
+      "endPos": {"line": 15, "column": 28}}],
+    "env": 0}
+
+   ✔ [2/22] Built REPL.Util.Pickle
+   ✔ [3/22] Built REPL.Util.Pickle:c.o
+   ✔ [4/22] Built REPL.Frontend
+   ✔ [5/22] Built REPL.Lean.Environment
+   ✔ [6/22] Built REPL.Frontend:c.o
+   ✔ [7/22] Built REPL.Lean.Environment:c.o
+   ✔ [8/22] Built REPL.JSON
+   ✔ [9/22] Built REPL.Util.Path
+   ✔ [10/22] Built REPL.Lean.ContextInfo
+   ✔ [11/22] Built REPL.Util.Path:c.o
+   ✔ [12/22] Built REPL.Lean.ContextInfo:c.o
+   ✔ [13/22] Built REPL.Lean.InfoTree
+   ✔ [14/22] Built REPL.Snapshots
+   ✔ [15/22] Built REPL.JSON:c.o
+   ✔ [16/22] Built REPL.Lean.InfoTree:c.o
+   ✔ [17/22] Built REPL.Lean.InfoTree.ToJson
+   ✔ [18/22] Built REPL.Snapshots:c.o
+   ✔ [19/22] Built REPL.Lean.InfoTree.ToJson:c.o
+   ✔ [20/22] Built REPL.Main
+   ✔ [21/22] Built REPL.Main:c.o
+   ✔ [22/22] Built repl
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 1
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Logic.Equiv.Set
+   import Mathlib.Order.RelIso.Set
+   import Mathlib.Order.WellFounded
+   import Mathlib.Order.InitialSeg
+
+   namespace myNameSpace
+
+
+   open PrincipalSeg
+   variable {α : Type*} {β : Type*} {γ : Type*} {r : α → α → Prop} {s : β → β → Prop}
+     {t : γ → γ → Prop}
+   open Function
+
+   theorem PrincipalSeg.top_eq [IsWellOrder γ t] (e : r ≃r s) (f : r ≺i t) (g : s ≺i t) : f.top = g.top := by
+     rw [Subsingleton.elim f (PrincipalSeg.equivLT e g)]; rfl
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [Subsingleton.elim f (PrincipalSeg.equivLT e g)]",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝ : IsWellOrder γ t\ne : r ≃r s\nf : r ≺i t\ng : s ≺i t\n⊢ f.top = g.top",
+      "endPos": {"line": 15, "column": 53}},
+     {"tactic": "rfl",
+      "proofState": 1,
+      "pos": {"line": 15, "column": 55},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝ : IsWellOrder γ t\ne : r ≃r s\nf : r ≺i t\ng : s ≺i t\n⊢ (equivLT e g).top = g.top",
+      "endPos": {"line": 15, "column": 58}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 2
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.perpBisector_ne_bot : perpBisector p₁ p₂ ≠ ⊥ := by
+     rw [← nonempty_iff_ne_bot]; exact perpBisector_nonempty
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [← nonempty_iff_ne_bot]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ perpBisector p₁ p₂ ≠ ⊥",
+      "endPos": {"line": 17, "column": 28}},
+     {"tactic": "exact perpBisector_nonempty",
+      "proofState": 1,
+      "pos": {"line": 17, "column": 30},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ (↑(perpBisector p₁ p₂)).Nonempty",
+      "endPos": {"line": 17, "column": 57}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 17, "column": 57},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.perpBisector_ne_bot':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 3
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Functor.KanExtension.Basic
+   import Mathlib.CategoryTheory.Functor.KanExtension.Pointwise
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open Functor
+   open LeftExtension
+   open IsPointwiseLeftKanExtensionAt
+   open Category Limits
+   variable {C D H : Type*} [Category C] [Category D] [Category H] (L : C ⥤ D) (F : C ⥤ H)
+   variable {F L}
+   variable (E : LeftExtension L F)
+   variable (E : LeftExtension L F)
+   variable (L F) in
+   /-- The cocones for `CostructuredArrow.proj L Y ⋙ F`, as a functor from `LeftExtension L F`. -/
+   @[simps]
+   def coconeAtFunctor (Y : D) :
+       LeftExtension L F ⥤ Cocone (CostructuredArrow.proj L Y ⋙ F) where
+     obj E := E.coconeAt Y
+     map {E E'} φ := CoconeMorphism.mk (φ.right.app Y) (fun G => by
+       dsimp
+       rw [← StructuredArrow.w φ]
+       simp)
+   variable {E} in
+   lemma IsPointwiseLeftKanExtensionAt.hasPointwiseLeftKanExtensionAt
+       {Y : D} (h : E.IsPointwiseLeftKanExtensionAt Y) :
+       HasPointwiseLeftKanExtensionAt L F Y := ⟨_, h⟩
+
+   theorem CategoryTheory.Functor.LeftExtension.IsPointwiseLeftKanExtensionAt.isIso_hom_app 
+       {X : C} (h : E.IsPointwiseLeftKanExtensionAt (L.obj X)) [L.Full] [L.Faithful] :
+       IsIso (E.hom.app X) := by
+     simpa using h.isIso_ι_app_of_isTerminal _ CostructuredArrow.mkIdTerminal
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "dsimp",
+      "proofState": 0,
+      "pos": {"line": 23, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ ((fun E => E.coconeAt Y) E).ι.app G ≫ φ.right.app Y = ((fun E => E.coconeAt Y) E').ι.app G",
+      "endPos": {"line": 23, "column": 9}},
+     {"tactic": "rw [← StructuredArrow.w φ]",
+      "proofState": 1,
+      "pos": {"line": 24, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ (E.hom.app G.left ≫ E.right.map G.hom) ≫ φ.right.app Y = E'.hom.app G.left ≫ E'.right.map G.hom",
+      "endPos": {"line": 24, "column": 30}},
+     {"tactic": "simp",
+      "proofState": 2,
+      "pos": {"line": 25, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ (E.hom.app G.left ≫ E.right.map G.hom) ≫ φ.right.app Y =\n    (E.hom ≫ ((whiskeringLeft C D H).obj L).map φ.right).app G.left ≫ E'.right.map G.hom",
+      "endPos": {"line": 25, "column": 8}},
+     {"tactic":
+      "simpa using h.isIso_ι_app_of_isTerminal _ CostructuredArrow.mkIdTerminal",
+      "proofState": 3,
+      "pos": {"line": 34, "column": 2},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝⁴ : Category.{u_4, u_1} C\ninst✝³ : Category.{u_5, u_2} D\ninst✝² : Category.{u_6, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nX : C\nh : E.IsPointwiseLeftKanExtensionAt (L.obj X)\ninst✝¹ : L.Full\ninst✝ : L.Faithful\n⊢ IsIso (E.hom.app X)",
+      "endPos": {"line": 34, "column": 74}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 4
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Logic.Equiv.Set
+   import Mathlib.Order.RelIso.Set
+   import Mathlib.Order.WellFounded
+   import Mathlib.Order.InitialSeg
+
+   namespace myNameSpace
+
+
+   open PrincipalSeg
+   variable {α : Type*} {β : Type*} {γ : Type*} {r : α → α → Prop} {s : β → β → Prop}
+     {t : γ → γ → Prop}
+   open Function
+
+   theorem PrincipalSeg.topLTTop {r : α → α → Prop} {s : β → β → Prop} {t : γ → γ → Prop} [IsWellOrder γ t]
+       (f : PrincipalSeg r s) (g : PrincipalSeg s t) (h : PrincipalSeg r t) : t h.top g.top := by
+     rw [Subsingleton.elim h (f.trans g)]
+     apply PrincipalSeg.lt_top
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [Subsingleton.elim h (f.trans g)]",
+      "proofState": 0,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝ : IsWellOrder γ t\nf : r ≺i s\ng : s ≺i t\nh : r ≺i t\n⊢ t h.top g.top",
+      "endPos": {"line": 16, "column": 38}},
+     {"tactic": "apply PrincipalSeg.lt_top",
+      "proofState": 1,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝ : IsWellOrder γ t\nf : r ≺i s\ng : s ≺i t\nh : r ≺i t\n⊢ t (f.trans g).top g.top",
+      "endPos": {"line": 17, "column": 27}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 5
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Monoidal.OfChosenFiniteProducts.Symmetric
+   import Mathlib.CategoryTheory.Limits.Constructions.FiniteProductsOfBinaryProducts
+   import Mathlib.CategoryTheory.ChosenFiniteProducts
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open ChosenFiniteProducts
+   variable {C : Type u} [Category.{v} C] [ChosenFiniteProducts C]
+   open MonoidalCategory
+
+   theorem CategoryTheory.ChosenFiniteProducts.lift_fst {T X Y : C} (f : T ⟶ X) (g : T ⟶ Y) : lift f g ≫ fst _ _ = f := by
+     simp [lift, fst]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [lift, fst]",
+      "proofState": 0,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nT X Y : C\nf : T ⟶ X\ng : T ⟶ Y\n⊢ lift f g ≫ fst X Y = f",
+      "endPos": {"line": 14, "column": 18}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 6
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.mem_perpBisector_iff_dist_eq' : c ∈ perpBisector p₁ p₂ ↔ dist p₁ c = dist p₂ c := by
+     simp only [mem_perpBisector_iff_dist_eq, dist_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp only [mem_perpBisector_iff_dist_eq, dist_comm]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\nc p₁ p₂ : P\n⊢ c ∈ perpBisector p₁ p₂ ↔ dist p₁ c = dist p₂ c",
+      "endPos": {"line": 17, "column": 53}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 17, "column": 53},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.mem_perpBisector_iff_dist_eq'':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 7
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.right_mem_perpBisector : p₂ ∈ perpBisector p₁ p₂ ↔ p₁ = p₂ := by
+     simpa [mem_perpBisector_iff_inner_eq_inner] using eq_comm
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa [mem_perpBisector_iff_inner_eq_inner] using eq_comm",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ p₂ ∈ perpBisector p₁ p₂ ↔ p₁ = p₂",
+      "endPos": {"line": 17, "column": 59}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 17, "column": 2},
+      "endPos": {"line": 17, "column": 59},
+      "data":
+      "try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`"},
+     {"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 17, "column": 59},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.right_mem_perpBisector':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 8
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Monoidal.OfChosenFiniteProducts.Symmetric
+   import Mathlib.CategoryTheory.Limits.Constructions.FiniteProductsOfBinaryProducts
+   import Mathlib.CategoryTheory.ChosenFiniteProducts
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open ChosenFiniteProducts
+   variable {C : Type u} [Category.{v} C] [ChosenFiniteProducts C]
+   open MonoidalCategory
+
+   theorem CategoryTheory.ChosenFiniteProducts.lift_snd {T X Y : C} (f : T ⟶ X) (g : T ⟶ Y) : lift f g ≫ snd _ _ = g := by
+     simp [lift, snd]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [lift, snd]",
+      "proofState": 0,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nT X Y : C\nf : T ⟶ X\ng : T ⟶ Y\n⊢ lift f g ≫ snd X Y = g",
+      "endPos": {"line": 14, "column": 18}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 9
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_id : YonedaCollection.map₁ (𝟙 F) (X := X) = id := by
+     aesop_cat
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "aesop_cat",
+      "proofState": 0,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\n⊢ map₁ (𝟙 F) = id",
+      "endPos": {"line": 16, "column": 11}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 10
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Functor.KanExtension.Basic
+   import Mathlib.CategoryTheory.Functor.KanExtension.Pointwise
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open Functor
+   open LeftExtension
+   open IsPointwiseLeftKanExtension
+   open Category Limits
+   variable {C D H : Type*} [Category C] [Category D] [Category H] (L : C ⥤ D) (F : C ⥤ H)
+   variable {F L}
+   variable (E : LeftExtension L F)
+   variable (E : LeftExtension L F)
+   variable (L F) in
+   /-- The cocones for `CostructuredArrow.proj L Y ⋙ F`, as a functor from `LeftExtension L F`. -/
+   @[simps]
+   def coconeAtFunctor (Y : D) :
+       LeftExtension L F ⥤ Cocone (CostructuredArrow.proj L Y ⋙ F) where
+     obj E := E.coconeAt Y
+     map {E E'} φ := CoconeMorphism.mk (φ.right.app Y) (fun G => by
+       dsimp
+       rw [← StructuredArrow.w φ]
+       simp)
+   variable {E} in
+   lemma IsPointwiseLeftKanExtensionAt.hasPointwiseLeftKanExtensionAt
+       {Y : D} (h : E.IsPointwiseLeftKanExtensionAt Y) :
+       HasPointwiseLeftKanExtensionAt L F Y := ⟨_, h⟩
+   variable {E E'}
+   variable (h : E.IsPointwiseLeftKanExtension)
+   include h
+
+   theorem CategoryTheory.Functor.LeftExtension.IsPointwiseLeftKanExtension.hom_ext 
+       {G : LeftExtension L F} {f₁ f₂ : E ⟶ G} : f₁ = f₂ := by
+     ext Y
+     apply (h Y).hom_ext
+     intro X
+     have eq₁ := congr_app (StructuredArrow.w f₁) X.left
+     have eq₂ := congr_app (StructuredArrow.w f₂) X.left
+     dsimp at eq₁ eq₂ ⊢
+     simp only [assoc, NatTrans.naturality]
+     rw [reassoc_of% eq₁, reassoc_of% eq₂]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "dsimp",
+      "proofState": 0,
+      "pos": {"line": 23, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ ((fun E => E.coconeAt Y) E).ι.app G ≫ φ.right.app Y = ((fun E => E.coconeAt Y) E').ι.app G",
+      "endPos": {"line": 23, "column": 9}},
+     {"tactic": "rw [← StructuredArrow.w φ]",
+      "proofState": 1,
+      "pos": {"line": 24, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ (E.hom.app G.left ≫ E.right.map G.hom) ≫ φ.right.app Y = E'.hom.app G.left ≫ E'.right.map G.hom",
+      "endPos": {"line": 24, "column": 30}},
+     {"tactic": "simp",
+      "proofState": 2,
+      "pos": {"line": 25, "column": 4},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{?u.2125, u_1} C\ninst✝¹ : Category.{?u.2129, u_2} D\ninst✝ : Category.{?u.2133, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE✝¹ E✝ : L.LeftExtension F\nY : D\nE E' : L.LeftExtension F\nφ : E ⟶ E'\nG : CostructuredArrow L Y\n⊢ (E.hom.app G.left ≫ E.right.map G.hom) ≫ φ.right.app Y =\n    (E.hom ≫ ((whiskeringLeft C D H).obj L).map φ.right).app G.left ≫ E'.right.map G.hom",
+      "endPos": {"line": 25, "column": 8}},
+     {"tactic": "ext Y",
+      "proofState": 3,
+      "pos": {"line": 36, "column": 2},
+      "goals":
+      "C : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\n⊢ f₁ = f₂",
+      "endPos": {"line": 36, "column": 7}},
+     {"tactic": "apply (h Y).hom_ext",
+      "proofState": 4,
+      "pos": {"line": 37, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\n⊢ f₁.right.app Y = f₂.right.app Y",
+      "endPos": {"line": 37, "column": 21}},
+     {"tactic": "intro X",
+      "proofState": 5,
+      "pos": {"line": 38, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\n⊢ ∀ (j : CostructuredArrow L Y), (E.coconeAt Y).ι.app j ≫ f₁.right.app Y = (E.coconeAt Y).ι.app j ≫ f₂.right.app Y",
+      "endPos": {"line": 38, "column": 9}},
+     {"tactic": "have eq₁ := congr_app (StructuredArrow.w f₁) X.left",
+      "proofState": 6,
+      "pos": {"line": 39, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\nX : CostructuredArrow L Y\n⊢ (E.coconeAt Y).ι.app X ≫ f₁.right.app Y = (E.coconeAt Y).ι.app X ≫ f₂.right.app Y",
+      "endPos": {"line": 39, "column": 53}},
+     {"tactic": "have eq₂ := congr_app (StructuredArrow.w f₂) X.left",
+      "proofState": 7,
+      "pos": {"line": 40, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\nX : CostructuredArrow L Y\neq₁ : (E.hom ≫ ((whiskeringLeft C D H).obj L).map f₁.right).app X.left = G.hom.app X.left\n⊢ (E.coconeAt Y).ι.app X ≫ f₁.right.app Y = (E.coconeAt Y).ι.app X ≫ f₂.right.app Y",
+      "endPos": {"line": 40, "column": 53}},
+     {"tactic": "dsimp at eq₁ eq₂ ⊢",
+      "proofState": 8,
+      "pos": {"line": 41, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\nX : CostructuredArrow L Y\neq₁ : (E.hom ≫ ((whiskeringLeft C D H).obj L).map f₁.right).app X.left = G.hom.app X.left\neq₂ : (E.hom ≫ ((whiskeringLeft C D H).obj L).map f₂.right).app X.left = G.hom.app X.left\n⊢ (E.coconeAt Y).ι.app X ≫ f₁.right.app Y = (E.coconeAt Y).ι.app X ≫ f₂.right.app Y",
+      "endPos": {"line": 41, "column": 20}},
+     {"tactic": "simp only [assoc, NatTrans.naturality]",
+      "proofState": 9,
+      "pos": {"line": 42, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\nX : CostructuredArrow L Y\neq₁ : E.hom.app X.left ≫ f₁.right.app (L.obj X.left) = G.hom.app X.left\neq₂ : E.hom.app X.left ≫ f₂.right.app (L.obj X.left) = G.hom.app X.left\n⊢ (E.hom.app X.left ≫ E.right.map X.hom) ≫ f₁.right.app Y = (E.hom.app X.left ≫ E.right.map X.hom) ≫ f₂.right.app Y",
+      "endPos": {"line": 42, "column": 40}},
+     {"tactic": "rw [reassoc_of% eq₁, reassoc_of% eq₂]",
+      "proofState": 10,
+      "pos": {"line": 43, "column": 2},
+      "goals":
+      "case h.w.h\nC : Type u_1\nD : Type u_2\nH : Type u_3\ninst✝² : Category.{u_4, u_1} C\ninst✝¹ : Category.{u_6, u_2} D\ninst✝ : Category.{u_5, u_3} H\nL : C ⥤ D\nF : C ⥤ H\nE : L.LeftExtension F\nh : E.IsPointwiseLeftKanExtension\nG : L.LeftExtension F\nf₁ f₂ : E ⟶ G\nY : D\nX : CostructuredArrow L Y\neq₁ : E.hom.app X.left ≫ f₁.right.app (L.obj X.left) = G.hom.app X.left\neq₂ : E.hom.app X.left ≫ f₂.right.app (L.obj X.left) = G.hom.app X.left\n⊢ E.hom.app X.left ≫ f₁.right.app (L.obj X.left) ≫ G.right.map X.hom =\n    E.hom.app X.left ≫ f₂.right.app (L.obj X.left) ≫ G.right.map X.hom",
+      "endPos": {"line": 43, "column": 39}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 11
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.counitForward_val_fst (s : CostructuredArrow yoneda A) (x : F.obj (op s)) :
+       (counitForward F s x).val.fst = s.hom := by
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\ns : CostructuredArrow yoneda A\nx : F.obj (op s)\n⊢ YonedaCollection.fst (counitForward F s x).val = s.hom",
+      "endPos": {"line": 17, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 12
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem CategoryTheory.Functor.RightExtension.IsPointwiseRightKanExtensionAt.isIso_hom_app 
+       {X : C} (h : E.IsPointwiseRightKanExtensionAt (L.obj X)) [L.Full] [L.Faithful] :
+       IsIso (E.hom.app X) := by
+     simpa using h.isIso_π_app_of_isInitial _ StructuredArrow.mkIdInitial
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:17: unknown identifier 'E.IsPointwiseRightKanExtensionAt'
+     error: ././././TmpProjDir/Basic.lean:7:62: unknown identifier 'L.Full'
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 13
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.AlgebraicGeometry.Morphisms.Basic
+   import Mathlib.RingTheory.RingHomProperties
+   import Mathlib.AlgebraicGeometry.Morphisms.Constructors
+
+   namespace myNameSpace
+
+
+   open AlgebraicGeometry
+   open TopologicalSpace CategoryTheory CategoryTheory.Limits Opposite
+   variable (P : ∀ {α β : Type u} [TopologicalSpace α] [TopologicalSpace β] (_ : α → β), Prop)
+
+   theorem AlgebraicGeometry.topologically_iso_le 
+       (hP : ∀ {α β : Type u} [TopologicalSpace α] [TopologicalSpace β] (f : α ≃ₜ β), P f) :
+       MorphismProperty.isomorphisms Scheme ≤ (topologically P) := by
+     intro X Y e (he : IsIso e)
+     have : IsIso e := he
+     exact hP (TopCat.homeoOfIso (asIso e.val.base))
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "intro X Y e (he : IsIso e)",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "P : {α β : Type u} → [inst : TopologicalSpace α] → [inst : TopologicalSpace β] → (α → β) → Prop\nhP : ∀ {α β : Type u} [inst : TopologicalSpace α] [inst_1 : TopologicalSpace β] (f : α ≃ₜ β), P ⇑f\n⊢ MorphismProperty.isomorphisms Scheme ≤ topologically fun {α β} [TopologicalSpace α] [TopologicalSpace β] => P",
+      "endPos": {"line": 15, "column": 28}},
+     {"tactic": "have : IsIso e := he",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "P : {α β : Type u} → [inst : TopologicalSpace α] → [inst : TopologicalSpace β] → (α → β) → Prop\nhP : ∀ {α β : Type u} [inst : TopologicalSpace α] [inst_1 : TopologicalSpace β] (f : α ≃ₜ β), P ⇑f\nX Y : Scheme\ne : X ⟶ Y\nhe : IsIso e\n⊢ topologically (fun {α β} [TopologicalSpace α] [TopologicalSpace β] => P) e",
+      "endPos": {"line": 16, "column": 22}},
+     {"tactic": "exact hP (TopCat.homeoOfIso (asIso e.val.base))",
+      "proofState": 2,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "P : {α β : Type u} → [inst : TopologicalSpace α] → [inst : TopologicalSpace β] → (α → β) → Prop\nhP : ∀ {α β : Type u} [inst : TopologicalSpace α] [inst_1 : TopologicalSpace β] (f : α ≃ₜ β), P ⇑f\nX Y : Scheme\ne : X ⟶ Y\nhe this : IsIso e\n⊢ topologically (fun {α β} [TopologicalSpace α] [TopologicalSpace β] => P) e",
+      "endPos": {"line": 17, "column": 49}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 14
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₂_id : YonedaCollection.map₂ F (𝟙 X) = id := by
+     ext; all_goals simp
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:91: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 15
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.midpoint_mem_perpBisector (p₁ p₂ : P) :
+       midpoint ℝ p₁ p₂ ∈ perpBisector p₁ p₂ := by
+     simp [mem_perpBisector_iff_inner_eq_zero]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [mem_perpBisector_iff_inner_eq_zero]",
+      "proofState": 0,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ midpoint ℝ p₁ p₂ ∈ perpBisector p₁ p₂",
+      "endPos": {"line": 18, "column": 43}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 18, "column": 43},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.midpoint_mem_perpBisector':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 16
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.app_unitForward {F : Cᵒᵖ ⥤ Type v} (η : F ⟶ A) (X : Cᵒᵖ)
+       (p : YonedaCollection (restrictedYonedaObj η) X.unop) :
+       η.app X (unitForward η X.unop p) = p.yonedaEquivFst := by
+     simpa [unitForward] using p.snd.app_val
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa [unitForward] using p.snd.app_val",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA F : Cᵒᵖ ⥤ Type v\nη : F ⟶ A\nX : Cᵒᵖ\np : YonedaCollection (restrictedYonedaObj η) (unop X)\n⊢ η.app X (unitForward η (unop X) p) = p.yonedaEquivFst",
+      "endPos": {"line": 17, "column": 41}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 17
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.unitForward_naturality₂ {F : Cᵒᵖ ⥤ Type v} (η : F ⟶ A) (X Y : C) (f : X ⟶ Y)
+       (p : YonedaCollection (restrictedYonedaObj η) Y) :
+       unitForward η X (YonedaCollection.map₂ (restrictedYonedaObj η) f p) =
+         F.map f.op (unitForward η Y p) := by
+     simp [unitForward]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [unitForward]",
+      "proofState": 0,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA F : Cᵒᵖ ⥤ Type v\nη : F ⟶ A\nX Y : C\nf : X ⟶ Y\np : YonedaCollection (restrictedYonedaObj η) Y\n⊢ unitForward η X (YonedaCollection.map₂ (restrictedYonedaObj η) f p) = F.map f.op (unitForward η Y p)",
+      "endPos": {"line": 18, "column": 20}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 18
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Monoidal.OfChosenFiniteProducts.Symmetric
+   import Mathlib.CategoryTheory.Limits.Constructions.FiniteProductsOfBinaryProducts
+   import Mathlib.CategoryTheory.ChosenFiniteProducts
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open ChosenFiniteProducts
+   variable {C : Type u} [Category.{v} C] [ChosenFiniteProducts C]
+   open MonoidalCategory
+
+   theorem CategoryTheory.ChosenFiniteProducts.associator_inv_fst (X Y Z : C) :
+       (α_ X Y Z).inv ≫ fst _ _ ≫ fst _ _ = fst _ _ := by
+     erw [lift_fst_assoc, lift_fst]
+     rfl
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "erw [lift_fst_assoc, lift_fst]",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nX Y Z : C\n⊢ (α_ X Y Z).inv ≫ fst (X ⊗ Y) Z ≫ fst X Y = fst X (Y ⊗ Z)",
+      "endPos": {"line": 15, "column": 32}},
+     {"tactic": "rfl",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nX Y Z : C\n⊢ Limits.BinaryFan.fst (product X (product Y Z).cone.pt).cone = fst X (Y ⊗ Z)",
+      "endPos": {"line": 16, "column": 5}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 19
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_yonedaEquivFst {G : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} (η : F ⟶ G)
+       (p : YonedaCollection F X) :
+       (YonedaCollection.map₁ η p).yonedaEquivFst = p.yonedaEquivFst := by
+     simp only [YonedaCollection.yonedaEquivFst_eq, map₁_fst]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp only [YonedaCollection.yonedaEquivFst_eq, map₁_fst]",
+      "proofState": 0,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\nG : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nη : F ⟶ G\np : YonedaCollection F X\n⊢ (map₁ η p).yonedaEquivFst = p.yonedaEquivFst",
+      "endPos": {"line": 18, "column": 58}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 20
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₂_fst {Y : C} (f : X ⟶ Y) (p : YonedaCollection F Y) :
+       (YonedaCollection.map₂ F f p).fst = yoneda.map f ≫ p.fst := by
+     simp [map₂]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [map₂]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\np : YonedaCollection F Y\n⊢ (map₂ F f p).fst = yoneda.map f ≫ p.fst",
+      "endPos": {"line": 17, "column": 13}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 21
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₂_snd {Y : C} (f : X ⟶ Y) (p : YonedaCollection F Y) :
+       (YonedaCollection.map₂ F f p).snd = F.map ((CostructuredArrow.mkPrecomp p.fst f).op ≫
+         eqToHom (by rw [YonedaCollection.map₂_fst f])) p.snd := by
+     simp [map₂]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [YonedaCollection.map₂_fst f]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 18},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\np : YonedaCollection F Y\n⊢ op (CostructuredArrow.mk (yoneda.map f ≫ p.fst)) = op (CostructuredArrow.mk (map₂ F f p).fst)",
+      "endPos": {"line": 17, "column": 50}},
+     {"tactic": "simp [map₂]",
+      "proofState": 1,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\np : YonedaCollection F Y\n⊢ (map₂ F f p).snd = F.map ((CostructuredArrow.mkPrecomp p.fst f).op ≫ eqToHom ⋯) p.snd",
+      "endPos": {"line": 18, "column": 13}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 22
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Monoidal.OfChosenFiniteProducts.Symmetric
+   import Mathlib.CategoryTheory.Limits.Constructions.FiniteProductsOfBinaryProducts
+   import Mathlib.CategoryTheory.ChosenFiniteProducts
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open ChosenFiniteProducts
+   variable {C : Type u} [Category.{v} C] [ChosenFiniteProducts C]
+   open MonoidalCategory
+
+   theorem CategoryTheory.ChosenFiniteProducts.associator_hom_snd_fst (X Y Z : C) :
+       (α_ X Y Z).hom ≫ snd _ _ ≫ fst _ _ = fst _ _ ≫ snd _ _ := by
+     erw [lift_snd_assoc, lift_fst]
+     rfl
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "erw [lift_snd_assoc, lift_fst]",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nX Y Z : C\n⊢ (α_ X Y Z).hom ≫ snd X (Y ⊗ Z) ≫ fst Y Z = fst (X ⊗ Y) Z ≫ snd X Y",
+      "endPos": {"line": 15, "column": 32}},
+     {"tactic": "rfl",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "C : Type u\ninst✝¹ : Category.{v, u} C\ninst✝ : ChosenFiniteProducts C\nX Y Z : C\n⊢ Limits.BinaryFan.fst (product (product X Y).cone.pt Z).cone ≫ Limits.BinaryFan.snd (product X Y).cone =\n    fst (X ⊗ Y) Z ≫ snd X Y",
+      "endPos": {"line": 16, "column": 5}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 23
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Logic.Equiv.Set
+   import Mathlib.Order.RelIso.Set
+   import Mathlib.Order.WellFounded
+   import Mathlib.Order.InitialSeg
+
+   namespace myNameSpace
+
+
+   open InitialSeg
+   variable {α : Type*} {β : Type*} {γ : Type*} {r : α → α → Prop} {s : β → β → Prop}
+     {t : γ → γ → Prop}
+   open Function
+
+   theorem InitialSeg.leLT_apply [IsWellOrder β s] [IsTrans γ t] (f : r ≼i s) (g : s ≺i t) (a : α) :
+       (f.leLT g) a = g (f a) := by
+     delta InitialSeg.leLT; cases' f.ltOrEq with f' f'
+     · simp only [PrincipalSeg.trans_apply, f.ltOrEq_apply_left]
+     · simp only [PrincipalSeg.equivLT_apply, f.ltOrEq_apply_right]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "delta InitialSeg.leLT",
+      "proofState": 0,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝¹ : IsWellOrder β s\ninst✝ : IsTrans γ t\nf : r ≼i s\ng : s ≺i t\na : α\n⊢ (f.leLT g).toRelEmbedding a = g.toRelEmbedding (f a)",
+      "endPos": {"line": 16, "column": 23}},
+     {"tactic": "cases' f.ltOrEq with f' f'",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 25},
+      "goals":
+      "α : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝¹ : IsWellOrder β s\ninst✝ : IsTrans γ t\nf : r ≼i s\ng : s ≺i t\na : α\n⊢ (match f.ltOrEq with\n        | Sum.inl f' => f'.trans g\n        | Sum.inr f' => PrincipalSeg.equivLT f' g).toRelEmbedding\n      a =\n    g.toRelEmbedding (f a)",
+      "endPos": {"line": 16, "column": 51}},
+     {"tactic": "simp only [PrincipalSeg.trans_apply, f.ltOrEq_apply_left]",
+      "proofState": 2,
+      "pos": {"line": 17, "column": 4},
+      "goals":
+      "case inl\nα : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝¹ : IsWellOrder β s\ninst✝ : IsTrans γ t\nf : r ≼i s\ng : s ≺i t\na : α\nf' : r ≺i s\n⊢ (match Sum.inl f' with\n        | Sum.inl f' => f'.trans g\n        | Sum.inr f' => PrincipalSeg.equivLT f' g).toRelEmbedding\n      a =\n    g.toRelEmbedding (f a)",
+      "endPos": {"line": 17, "column": 61}},
+     {"tactic": "simp only [PrincipalSeg.equivLT_apply, f.ltOrEq_apply_right]",
+      "proofState": 3,
+      "pos": {"line": 18, "column": 4},
+      "goals":
+      "case inr\nα : Type u_1\nβ : Type u_2\nγ : Type u_3\nr : α → α → Prop\ns : β → β → Prop\nt : γ → γ → Prop\ninst✝¹ : IsWellOrder β s\ninst✝ : IsTrans γ t\nf : r ≼i s\ng : s ≺i t\na : α\nf' : r ≃r s\n⊢ (match Sum.inr f' with\n        | Sum.inl f' => f'.trans g\n        | Sum.inr f' => PrincipalSeg.equivLT f' g).toRelEmbedding\n      a =\n    g.toRelEmbedding (f a)",
+      "endPos": {"line": 18, "column": 64}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 24
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Logic.Equiv.Set
+   import Mathlib.Order.RelIso.Set
+   import Mathlib.Order.WellFounded
+   import Mathlib.Order.InitialSeg
+
+   namespace myNameSpace
+
+
+   open PrincipalSeg
+   variable {α : Type*} {β : Type*} {γ : Type*} {r : α → α → Prop} {s : β → β → Prop}
+     {t : γ → γ → Prop}
+   open Function
+
+   theorem PrincipalSeg.irrefl {r : α → α → Prop} [IsWellOrder α r] (f : r ≺i r) : False := by
+     have h := f.lt_top f.top
+     rw [show f f.top = f.top from InitialSeg.eq (↑f) (InitialSeg.refl r) f.top] at h
+     exact _root_.irrefl _ h
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "have h := f.lt_top f.top",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "α : Type u_1 r : α → α → Prop inst✝ : IsWellOrder α r f : r ≺i r ⊢ False",
+      "endPos": {"line": 15, "column": 26}},
+     {"tactic":
+      "rw [show f f.top = f.top from InitialSeg.eq (↑f) (InitialSeg.refl r) f.top] at h",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "α : Type u_1 r : α → α → Prop inst✝ : IsWellOrder α r f : r ≺i r h : r (f.toRelEmbedding f.top) f.top ⊢ False",
+      "endPos": {"line": 16, "column": 82}},
+     {"tactic": "exact _root_.irrefl _ h",
+      "proofState": 2,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "α : Type u_1 r : α → α → Prop inst✝ : IsWellOrder α r f : r ≺i r h : r f.top f.top ⊢ False",
+      "endPos": {"line": 17, "column": 25}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 25
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.GroupTheory.FreeGroup.Basic
+   import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
+
+   namespace myNameSpace
+
+
+   open FreeGroupBasis
+   open Function Set
+   variable {ι ι' G H : Type*} [Group G] [Group H]
+
+   theorem FreeGroupBasis.repr_apply_coe (b : FreeGroupBasis ι G) (i : ι) : b.repr (b i) = FreeGroup.of i := by
+     change b.repr (b.repr.symm (FreeGroup.of i)) = FreeGroup.of i
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "change b.repr (b.repr.symm (FreeGroup.of i)) = FreeGroup.of i",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals":
+      "ι : Type u_1 G : Type u_3 inst✝ : Group G b : FreeGroupBasis ι G i : ι ⊢ b.repr (b i) = FreeGroup.of i",
+      "endPos": {"line": 12, "column": 63}},
+     {"tactic": "simp",
+      "proofState": 1,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "ι : Type u_1\nG : Type u_3\ninst✝ : Group G\nb : FreeGroupBasis ι G\ni : ι\n⊢ b.repr (b.repr.symm (FreeGroup.of i)) = FreeGroup.of i",
+      "endPos": {"line": 13, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 26
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.left_mem_perpBisector : p₁ ∈ perpBisector p₁ p₂ ↔ p₁ = p₂ := by
+     rw [perpBisector_comm, right_mem_perpBisector, eq_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [perpBisector_comm, right_mem_perpBisector, eq_comm]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ p₁ ∈ perpBisector p₁ p₂ ↔ p₁ = p₂",
+      "endPos": {"line": 17, "column": 57}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 17, "column": 57},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.left_mem_perpBisector':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 27
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_zero' (μ : Measure α) : μ.tilted 0 = (μ Set.univ)⁻¹ • μ := by
+     change μ.tilted (fun _ ↦ 0) = (μ Set.univ)⁻¹ • μ
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "change μ.tilted (fun _ ↦ 0) = (μ Set.univ)⁻¹ • μ",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α ⊢ μ.tilted 0 = (μ Set.univ)⁻¹ • μ",
+      "endPos": {"line": 13, "column": 50}},
+     {"tactic": "simp",
+      "proofState": 1,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α ⊢ (μ.tilted fun x => 0) = (μ Set.univ)⁻¹ • μ",
+      "endPos": {"line": 14, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 28
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_apply' (μ : Measure α) (f : α → ℝ) {s : Set α} (hs : MeasurableSet s) :
+       μ.tilted f s = ∫⁻ a in s, ENNReal.ofReal (exp (f a) / ∫ x, exp (f x) ∂μ) ∂μ := by
+     rw [Measure.tilted, withDensity_apply _ hs]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [Measure.tilted, withDensity_apply _ hs]",
+      "proofState": 0,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "α : Type u_1\nmα : MeasurableSpace α\nμ : Measure α\nf : α → ℝ\ns : Set α\nhs : MeasurableSet s\n⊢ (μ.tilted f) s = ∫⁻ (a : α) in s, ENNReal.ofReal (rexp (f a) / ∫ (x : α), rexp (f x) ∂μ) ∂μ",
+      "endPos": {"line": 14, "column": 45}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 29
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open AffineSubspace
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+
+   theorem AffineSubspace.perpBisector_comm (p₁ p₂ : P) : perpBisector p₁ p₂ = perpBisector p₂ p₁ := by
+     ext c; simp only [mem_perpBisector_iff_dist_eq, eq_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "ext c",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ : P\n⊢ perpBisector p₁ p₂ = perpBisector p₂ p₁",
+      "endPos": {"line": 17, "column": 7}},
+     {"tactic": "simp only [mem_perpBisector_iff_dist_eq, eq_comm]",
+      "proofState": 1,
+      "pos": {"line": 17, "column": 9},
+      "goals":
+      "case h\nV : Type u_1\nP : Type u_2\ninst✝⁴ : NormedAddCommGroup V\ninst✝³ : InnerProductSpace ℝ V\ninst✝² : MetricSpace P\ninst✝¹ inst✝ : NormedAddTorsor V P\np₁ p₂ c : P\n⊢ c ∈ perpBisector p₁ p₂ ↔ c ∈ perpBisector p₂ p₁",
+      "endPos": {"line": 17, "column": 58}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 16, "column": 0},
+      "endPos": {"line": 17, "column": 58},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.AffineSubspace.perpBisector_comm':\n  [NormedAddTorsor V P]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 30
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Analysis.InnerProductSpace.Orthogonal
+   import Mathlib.Analysis.Normed.Group.AddTorsor
+   import Mathlib.Geometry.Euclidean.PerpBisector
+
+   namespace myNameSpace
+
+
+   open Isometry
+   open Set
+   open scoped RealInnerProductSpace
+   variable {V P : Type*} [NormedAddCommGroup V] [InnerProductSpace ℝ V] [MetricSpace P]
+   variable [NormedAddTorsor V P]
+   variable [NormedAddTorsor V P]
+   variable {c c₁ c₂ p₁ p₂ : P}
+   open AffineSubspace
+   variable {V' P' : Type*} [NormedAddCommGroup V'] [InnerProductSpace ℝ V'] [MetricSpace P']
+   variable [NormedAddTorsor V' P']
+   variable [NormedAddTorsor V' P']
+
+   theorem Isometry.preimage_perpBisector {f : P → P'} (h : Isometry f) (p₁ p₂ : P) :
+       f ⁻¹' (perpBisector (f p₁) (f p₂)) = perpBisector p₁ p₂ := by
+     ext x; simp [mem_perpBisector_iff_dist_eq, h.dist_eq]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "ext x",
+      "proofState": 0,
+      "pos": {"line": 22, "column": 2},
+      "goals":
+      "V : Type u_1\nP : Type u_2\ninst✝⁹ : NormedAddCommGroup V\ninst✝⁸ : InnerProductSpace ℝ V\ninst✝⁷ : MetricSpace P\ninst✝⁶ inst✝⁵ : NormedAddTorsor V P\nV' : Type u_3\nP' : Type u_4\ninst✝⁴ : NormedAddCommGroup V'\ninst✝³ : InnerProductSpace ℝ V'\ninst✝² : MetricSpace P'\ninst✝¹ inst✝ : NormedAddTorsor V' P'\nf : P → P'\nh : Isometry f\np₁ p₂ : P\n⊢ f ⁻¹' ↑(perpBisector (f p₁) (f p₂)) = ↑(perpBisector p₁ p₂)",
+      "endPos": {"line": 22, "column": 7}},
+     {"tactic": "simp [mem_perpBisector_iff_dist_eq, h.dist_eq]",
+      "proofState": 1,
+      "pos": {"line": 22, "column": 9},
+      "goals":
+      "case h\nV : Type u_1\nP : Type u_2\ninst✝⁹ : NormedAddCommGroup V\ninst✝⁸ : InnerProductSpace ℝ V\ninst✝⁷ : MetricSpace P\ninst✝⁶ inst✝⁵ : NormedAddTorsor V P\nV' : Type u_3\nP' : Type u_4\ninst✝⁴ : NormedAddCommGroup V'\ninst✝³ : InnerProductSpace ℝ V'\ninst✝² : MetricSpace P'\ninst✝¹ inst✝ : NormedAddTorsor V' P'\nf : P → P'\nh : Isometry f\np₁ p₂ x : P\n⊢ x ∈ f ⁻¹' ↑(perpBisector (f p₁) (f p₂)) ↔ x ∈ ↑(perpBisector p₁ p₂)",
+      "endPos": {"line": 22, "column": 55}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 20, "column": 0},
+      "endPos": {"line": 22, "column": 55},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.Isometry.preimage_perpBisector':\n  [NormedAddTorsor V P]\n  [NormedAddTorsor V' P']\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [NormedAddTorsor V P] [NormedAddTorsor V' P'] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 31
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_of_not_aemeasurable (hf : ¬ AEMeasurable f μ) : μ.tilted f = 0 := by
+     refine tilted_of_not_integrable ?_
+     suffices ¬ AEMeasurable (fun x ↦ exp (f x)) μ by exact fun h ↦ this h.1.aemeasurable
+     exact fun h ↦ hf (aemeasurable_of_aemeasurable_exp h)
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "refine tilted_of_not_integrable ?_",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α f : α → ℝ hf : ¬AEMeasurable f μ ⊢ μ.tilted f = 0",
+      "endPos": {"line": 13, "column": 36}},
+     {"tactic":
+      "suffices ¬AEMeasurable (fun x ↦ exp (f x)) μ by exact fun h ↦ this h.1.aemeasurable",
+      "proofState": 1,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α f : α → ℝ hf : ¬AEMeasurable f μ ⊢ ¬Integrable (fun x => rexp (f x)) μ",
+      "endPos": {"line": 14, "column": 86}},
+     {"tactic": "exact fun h ↦ this h.1.aemeasurable",
+      "proofState": 2,
+      "pos": {"line": 14, "column": 51},
+      "goals":
+      "α : Type u_1\nmα : MeasurableSpace α\nμ : Measure α\nf : α → ℝ\nhf : ¬AEMeasurable f μ\nthis : ¬AEMeasurable (fun x => rexp (f x)) μ\n⊢ ¬Integrable (fun x => rexp (f x)) μ",
+      "endPos": {"line": 14, "column": 86}},
+     {"tactic": "exact fun h ↦ hf (aemeasurable_of_aemeasurable_exp h)",
+      "proofState": 3,
+      "pos": {"line": 15, "column": 2},
+      "goals":
+      "α : Type u_1\nmα : MeasurableSpace α\nμ : Measure α\nf : α → ℝ\nhf : ¬AEMeasurable f μ\n⊢ ¬AEMeasurable (fun x => rexp (f x)) μ",
+      "endPos": {"line": 15, "column": 55}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 32
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_ne_zero : a⁻¹ ≠ 0 ↔ a ≠ ∞ := by
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a⁻¹ ≠ 0 ↔ a ≠ ⊤",
+      "endPos": {"line": 12, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 33
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_lt_top {x : ℝ≥0∞} : x⁻¹ < ∞ ↔ 0 < x := by
+     simp only [lt_top_iff_ne_top, inv_ne_top, pos_iff_ne_zero]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp only [lt_top_iff_ne_top, inv_ne_top, pos_iff_ne_zero]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "x : ℝ≥0∞ ⊢ x⁻¹ < ⊤ ↔ 0 < x",
+      "endPos": {"line": 12, "column": 60}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 34
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_snd {G : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} (η : F ⟶ G)
+       (p : YonedaCollection F X) : (YonedaCollection.map₁ η p).snd =
+         G.map (eqToHom (by rw [YonedaCollection.map₁_fst])) (η.app _ p.snd) := by
+     simp [map₁]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [YonedaCollection.map₁_fst]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 25},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\nG : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nη : F ⟶ G\np : YonedaCollection F X\n⊢ op (CostructuredArrow.mk p.fst) = op (CostructuredArrow.mk (map₁ η p).fst)",
+      "endPos": {"line": 17, "column": 55}},
+     {"tactic": "simp [map₁]",
+      "proofState": 1,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\nG : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nη : F ⟶ G\np : YonedaCollection F X\n⊢ (map₁ η p).snd = G.map (eqToHom ⋯) (η.app (op (CostructuredArrow.mk p.fst)) p.snd)",
+      "endPos": {"line": 18, "column": 13}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 35
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_fst {G : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} (η : F ⟶ G)
+       (p : YonedaCollection F X) : (YonedaCollection.map₁ η p).fst = p.fst := by
+     simp [map₁]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [map₁]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\nG : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nη : F ⟶ G\np : YonedaCollection F X\n⊢ (map₁ η p).fst = p.fst",
+      "endPos": {"line": 17, "column": 13}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 36
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.unitForward_naturality₁ {F G : Cᵒᵖ ⥤ Type v} {η : F ⟶ A} {μ : G ⟶ A} (ε : F ⟶ G)
+       (hε : ε ≫ μ = η) (X : C) (p : YonedaCollection (restrictedYonedaObj η) X) :
+       unitForward μ X (p.map₁ (restrictedYonedaObjMap₁ ε hε)) = ε.app _ (unitForward η X p) := by
+     simp [unitForward]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [unitForward]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA F G : Cᵒᵖ ⥤ Type v\nη : F ⟶ A\nμ : G ⟶ A\nε : F ⟶ G\nhε : ε ≫ μ = η\nX : C\np : YonedaCollection (restrictedYonedaObj η) X\n⊢ unitForward μ X (YonedaCollection.map₁ (restrictedYonedaObjMap₁ ε hε) p) = ε.app (op X) (unitForward η X p)",
+      "endPos": {"line": 17, "column": 20}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 37
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+
+   theorem CategoryTheory.OverPresheafAux.map_mkPrecomp_eqToHom {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X Y : C} {f : X ⟶ Y}
+       {g g' : yoneda.obj Y ⟶ A} (h : g = g') {x : F.obj (op (CostructuredArrow.mk g'))} :
+       F.map (CostructuredArrow.mkPrecomp g f).op (F.map (eqToHom (by rw [h])) x) =
+         F.map (eqToHom (by rw [h])) (F.map (CostructuredArrow.mkPrecomp g' f).op x) := by
+     aesop_cat
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [h]",
+      "proofState": 0,
+      "pos": {"line": 15, "column": 67},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\ng g' : yoneda.obj Y ⟶ A\nh : g = g'\nx : F.obj (op (CostructuredArrow.mk g'))\n⊢ op (CostructuredArrow.mk g') = op (CostructuredArrow.mk g)",
+      "endPos": {"line": 15, "column": 73}},
+     {"tactic": "rw [h]",
+      "proofState": 1,
+      "pos": {"line": 16, "column": 25},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\ng g' : yoneda.obj Y ⟶ A\nh : g = g'\nx : F.obj (op (CostructuredArrow.mk g'))\n⊢ op (CostructuredArrow.mk (yoneda.map f ≫ g')) = op (CostructuredArrow.mk (yoneda.map f ≫ g))",
+      "endPos": {"line": 16, "column": 31}},
+     {"tactic": "aesop_cat",
+      "proofState": 2,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\ng g' : yoneda.obj Y ⟶ A\nh : g = g'\nx : F.obj (op (CostructuredArrow.mk g'))\n⊢ F.map (CostructuredArrow.mkPrecomp g f).op (F.map (eqToHom ⋯) x) =\n    F.map (eqToHom ⋯) (F.map (CostructuredArrow.mkPrecomp g' f).op x)",
+      "endPos": {"line": 17, "column": 11}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 38
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₂_comp {Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z) :
+       YonedaCollection.map₂ F (f ≫ g) = YonedaCollection.map₂ F f ∘ YonedaCollection.map₂ F g := by
+     ext; all_goals simp
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:83: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✗] row 39
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_map₂ {G : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} (η : F ⟶ G) {Y : C} (f : X ⟶ Y)
+       (p : YonedaCollection F Y) :
+       YonedaCollection.map₂ G f (YonedaCollection.map₁ η p) =
+         YonedaCollection.map₁ η (YonedaCollection.map₂ F f p) := by
+     ext; all_goals simp
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:99: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 40
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open OverArrows
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.OverArrows.yonedaCollectionPresheafToA_val_fst (s : yoneda.obj X ⟶ A)
+       (p : OverArrows (yonedaCollectionPresheafToA F) s) : p.val.fst = s := by
+     simpa [YonedaCollection.yonedaEquivFst_eq] using p.app_val
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa [YonedaCollection.yonedaEquivFst_eq] using p.app_val",
+      "proofState": 0,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\ns : yoneda.obj X ⟶ A\np : OverArrows (yonedaCollectionPresheafToA F) s\n⊢ YonedaCollection.fst p.val = s",
+      "endPos": {"line": 18, "column": 60}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 18, "column": 2},
+      "endPos": {"line": 18, "column": 60},
+      "data":
+      "try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`"}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 41
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₂_yonedaEquivFst {Y : C} (f : X ⟶ Y) (p : YonedaCollection F Y) :
+       (YonedaCollection.map₂ F f p).yonedaEquivFst = A.map f.op p.yonedaEquivFst := by
+     simp only [YonedaCollection.yonedaEquivFst_eq, map₂_fst, yonedaEquiv_naturality]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "simp only [YonedaCollection.yonedaEquivFst_eq, map₂_fst, yonedaEquiv_naturality]",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX Y : C\nf : X ⟶ Y\np : YonedaCollection F Y\n⊢ (map₂ F f p).yonedaEquivFst = A.map f.op p.yonedaEquivFst",
+      "endPos": {"line": 17, "column": 82}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 42
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_mul_le_iff {x y z : ℝ≥0∞} (h1 : x ≠ 0) (h2 : x ≠ ∞) :
+       x⁻¹ * y ≤ z ↔ y ≤ x * z := by
+     rw [← mul_le_mul_left h1 h2, ← mul_assoc, ENNReal.mul_inv_cancel h1 h2, one_mul]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "rw [← mul_le_mul_left h1 h2, ← mul_assoc, ENNReal.mul_inv_cancel h1 h2, one_mul]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "x y z : ℝ≥0∞ h1 : x ≠ 0 h2 : x ≠ ⊤ ⊢ x⁻¹ * y ≤ z ↔ y ≤ x * z",
+      "endPos": {"line": 13, "column": 82}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 43
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.map₁_comp {G H : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} (η : F ⟶ G) (μ : G ⟶ H) :
+       YonedaCollection.map₁ (η ≫ μ) (X := X) =
+         YonedaCollection.map₁ μ (X := X) ∘ YonedaCollection.map₁ η (X := X) := by
+     ext; all_goals simp
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:101: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✗] row 44
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem IsFreeGroup.unique_lift (f : Generators G → H) : ∃! F : G →* H, ∀ a, F (of a) = f a := by
+     simpa only [Function.funext_iff] using lift.symm.bijective.existsUnique f
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:58: unexpected token '!'; expected '(', '_' or identifier
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 45
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.mul_inv_le_iff {x y z : ℝ≥0∞} (h1 : y ≠ 0) (h2 : y ≠ ∞) :
+       x * y⁻¹ ≤ z ↔ x ≤ z * y := by
+     rw [mul_comm, ENNReal.inv_mul_le_iff h1 h2, mul_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [mul_comm, ENNReal.inv_mul_le_iff h1 h2, mul_comm]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "x y z : ℝ≥0∞ h1 : y ≠ 0 h2 : y ≠ ⊤ ⊢ x * y⁻¹ ≤ z ↔ x ≤ z * y",
+      "endPos": {"line": 13, "column": 55}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 46
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_le_iff' {x y z : ℝ≥0∞} (h1 : y ≠ 0) (h2 : y ≠ ∞) :
+       x / y ≤ z ↔ x ≤ y * z := by
+     rw [mul_comm, ENNReal.div_le_iff h1 h2]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [mul_comm, ENNReal.div_le_iff h1 h2]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "x y z : ℝ≥0∞ h1 : y ≠ 0 h2 : y ≠ ⊤ ⊢ x / y ≤ z ↔ x ≤ y * z",
+      "endPos": {"line": 13, "column": 41}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 47
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_zero_measure (f : α → ℝ) : (0 : Measure α).tilted f = 0 := by
+     simp [Measure.tilted]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [Measure.tilted]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α f : α → ℝ ⊢ Measure.tilted 0 f = 0",
+      "endPos": {"line": 13, "column": 23}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 48
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open YonedaCollection
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.YonedaCollection.ext {p q : YonedaCollection F X} (h : p.fst = q.fst)
+       (h' : F.map (eqToHom <| by rw [h]) q.snd = p.snd) : p = q := by
+     rcases p with ⟨p, p'⟩
+     rcases q with ⟨q, q'⟩
+     obtain rfl : p = q := yonedaEquiv.symm.injective h
+     exact Sigma.ext rfl (by simpa [snd] using h'.symm)
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [h]",
+      "proofState": 0,
+      "pos": {"line": 16, "column": 31},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\np q : YonedaCollection F X\nh : p.fst = q.fst\n⊢ op (CostructuredArrow.mk q.fst) = op (CostructuredArrow.mk p.fst)",
+      "endPos": {"line": 16, "column": 37}},
+     {"tactic": "rcases p with ⟨p, p'⟩",
+      "proofState": 1,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\np q : YonedaCollection F X\nh : p.fst = q.fst\nh' : F.map (eqToHom ⋯) q.snd = p.snd\n⊢ p = q",
+      "endPos": {"line": 17, "column": 23}},
+     {"tactic": "rcases q with ⟨q, q'⟩",
+      "proofState": 2,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "case mk\nC : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\nq : YonedaCollection F X\np : A.obj (op X)\np' : F.obj (op (CostructuredArrow.mk (yonedaEquiv.symm p)))\nh : fst ⟨p, p'⟩ = q.fst\nh' : F.map (eqToHom ⋯) q.snd = snd ⟨p, p'⟩\n⊢ ⟨p, p'⟩ = q",
+      "endPos": {"line": 18, "column": 23}},
+     {"tactic": "obtain rfl : p = q := yonedaEquiv.symm.injective h",
+      "proofState": 3,
+      "pos": {"line": 19, "column": 2},
+      "goals":
+      "case mk.mk\nC : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\np : A.obj (op X)\np' : F.obj (op (CostructuredArrow.mk (yonedaEquiv.symm p)))\nq : A.obj (op X)\nq' : F.obj (op (CostructuredArrow.mk (yonedaEquiv.symm q)))\nh : fst ⟨p, p'⟩ = fst ⟨q, q'⟩\nh' : F.map (eqToHom ⋯) (snd ⟨q, q'⟩) = snd ⟨p, p'⟩\n⊢ ⟨p, p'⟩ = ⟨q, q'⟩",
+      "endPos": {"line": 19, "column": 52}},
+     {"tactic": "exact Sigma.ext rfl (by simpa [snd] using h'.symm)",
+      "proofState": 4,
+      "pos": {"line": 20, "column": 2},
+      "goals":
+      "case mk.mk\nC : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\np : A.obj (op X)\np' q' : F.obj (op (CostructuredArrow.mk (yonedaEquiv.symm p)))\nh : fst ⟨p, p'⟩ = fst ⟨p, q'⟩\nh' : F.map (eqToHom ⋯) (snd ⟨p, q'⟩) = snd ⟨p, p'⟩\n⊢ ⟨p, p'⟩ = ⟨p, q'⟩",
+      "endPos": {"line": 20, "column": 52}},
+     {"tactic": "simpa [snd] using h'.symm",
+      "proofState": 5,
+      "pos": {"line": 20, "column": 26},
+      "goals":
+      "C : Type u\ninst✝ : Category.{v, u} C\nA : Cᵒᵖ ⥤ Type v\nF : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v\nX : C\np : A.obj (op X)\np' q' : F.obj (op (CostructuredArrow.mk (yonedaEquiv.symm p)))\nh : fst ⟨p, p'⟩ = fst ⟨p, q'⟩\nh' : F.map (eqToHom ⋯) (snd ⟨p, q'⟩) = snd ⟨p, p'⟩\n⊢ HEq ⟨p, p'⟩.snd ⟨p, q'⟩.snd",
+      "endPos": {"line": 20, "column": 51}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 49
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_le_iff {x y z : ℝ≥0∞} (h1 : y ≠ 0) (h2 : y ≠ ∞) :
+       x / y ≤ z ↔ x ≤ z * y := by
+     rw [div_eq_mul_inv, ENNReal.mul_inv_le_iff h1 h2]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [div_eq_mul_inv, ENNReal.mul_inv_le_iff h1 h2]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "x y z : ℝ≥0∞ h1 : y ≠ 0 h2 : y ≠ ⊤ ⊢ x / y ≤ z ↔ x ≤ z * y",
+      "endPos": {"line": 13, "column": 51}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 50
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_of_not_integrable (hf : ¬ Integrable (fun x ↦ exp (f x)) μ) : μ.tilted f = 0 := by
+     rw [Measure.tilted, integral_undef hf]
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [Measure.tilted, integral_undef hf]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α f : α → ℝ hf : ¬Integrable (fun x => rexp (f x)) μ ⊢ μ.tilted f = 0",
+      "endPos": {"line": 13, "column": 40}},
+     {"tactic": "simp",
+      "proofState": 1,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "α : Type u_1\nmα : MeasurableSpace α\nμ : Measure α\nf : α → ℝ\nhf : ¬Integrable (fun x => rexp (f x)) μ\n⊢ (μ.withDensity fun x => ENNReal.ofReal (rexp (f x) / 0)) = 0",
+      "endPos": {"line": 14, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 51
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_zero (μ : Measure α) [IsProbabilityMeasure μ] : μ.tilted 0 = μ := by
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α inst✝ : IsProbabilityMeasure μ ⊢ μ.tilted 0 = μ",
+      "endPos": {"line": 13, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 52
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.CategoryTheory.Comma.Over
+   import Mathlib.Tactic.CategoryTheory.Elementwise
+   import Mathlib.CategoryTheory.Comma.Presheaf
+
+   namespace myNameSpace
+
+
+   open CategoryTheory
+   open OverPresheafAux
+   open Category Opposite
+   variable {C : Type u} [Category.{v} C] {A : Cᵒᵖ ⥤ Type v}
+   variable {F : (CostructuredArrow yoneda A)ᵒᵖ ⥤ Type v} {X : C}
+
+   theorem CategoryTheory.OverPresheafAux.unitBackward_unitForward {F : Cᵒᵖ ⥤ Type v} (η : F ⟶ A) (X : C) :
+       unitBackward η X ∘ unitForward η X = id := by
+     refine funext fun p => YonedaCollection.ext ?_ (OverArrows.ext ?_)
+     · simpa [unitForward, unitBackward] using congrArg yonedaEquiv.symm p.snd.app_val
+     · simp [unitForward, unitBackward]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "refine funext fun p => YonedaCollection.ext ?_ (OverArrows.ext ?_)",
+      "proofState": 0,
+      "pos": {"line": 16, "column": 2},
+      "goals":
+      "C : Type u inst✝ : Category.{v, u} C A F : Cᵒᵖ ⥤ Type v η : F ⟶ A X : C ⊢ unitBackward η X ∘ unitForward η X = id",
+      "endPos": {"line": 16, "column": 68}},
+     {"tactic":
+      "simpa [unitForward, unitBackward] using congrArg yonedaEquiv.symm p.snd.app_val",
+      "proofState": 1,
+      "pos": {"line": 17, "column": 4},
+      "goals":
+      "case refine_1\nC : Type u\ninst✝ : Category.{v, u} C\nA F : Cᵒᵖ ⥤ Type v\nη : F ⟶ A\nX : C\np : YonedaCollection (restrictedYonedaObj η) X\n⊢ ((unitBackward η X ∘ unitForward η X) p).fst = (id p).fst",
+      "endPos": {"line": 17, "column": 83}},
+     {"tactic": "simp [unitForward, unitBackward]",
+      "proofState": 2,
+      "pos": {"line": 18, "column": 4},
+      "goals":
+      "case refine_2\nC : Type u\ninst✝ : Category.{v, u} C\nA F : Cᵒᵖ ⥤ Type v\nη : F ⟶ A\nX : C\np : YonedaCollection (restrictedYonedaObj η) X\n⊢ OverArrows.val ((restrictedYonedaObj η).map (eqToHom ⋯) (id p).snd) =\n    OverArrows.val ((unitBackward η X ∘ unitForward η X) p).snd",
+      "endPos": {"line": 18, "column": 36}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 53
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.MeasureTheory.Decomposition.RadonNikodym
+   import Mathlib.MeasureTheory.Measure.Tilted
+
+   namespace myNameSpace
+
+
+   open MeasureTheory
+   open Real
+   open scoped ENNReal NNReal
+   variable {α : Type*} {mα : MeasurableSpace α} {μ : Measure α} {f : α → ℝ}
+
+   theorem MeasureTheory.tilted_const (μ : Measure α) [IsProbabilityMeasure μ] (c : ℝ) :
+       μ.tilted (fun _ ↦ c) = μ := by
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp",
+      "proofState": 0,
+      "pos": {"line": 14, "column": 2},
+      "goals":
+      "α : Type u_1 mα : MeasurableSpace α μ : Measure α inst✝ : IsProbabilityMeasure μ c : ℝ ⊢ (μ.tilted fun x => c) = μ",
+      "endPos": {"line": 14, "column": 6}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 54
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsFixedBlock.isBlock {B : Set X} (hfB : IsFixedBlock G B) :
+       IsBlock G B := by
+     simp [IsBlock.def, hfB _]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:44: function expected at
+       Set
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:6:58: function expected at
+       IsFixedBlock
+     term has type
+       ?m.10
+     error: ././././TmpProjDir/Basic.lean:7:4: function expected at
+
+
+
+   ================================================================================
+[✗] row 55
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsBlock.def {B : Set X} :
+       IsBlock G B ↔ ∀ g g' : G, g • B = g' • B ∨ Disjoint (g • B) (g' • B) := by
+     apply Set.pairwiseDisjoint_range_iff
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:32: expected token
+     error: ././././TmpProjDir/Basic.lean:7:30: type expected, got
+       (g : G)
+     error: ././././TmpProjDir/Basic.lean:6:35: function expected at
+       Set
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:7:4: function expected at
+       IsBlock
+
+
+
+   ================================================================================
+[✗] row 56
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsBlock.mk_notempty {B : Set X} :
+       IsBlock G B ↔ ∀ g g' : G, g • B ∩ g' • B ≠ ∅ → g • B = g' • B := by
+     simp_rw [IsBlock.def, or_iff_not_imp_right, Set.disjoint_iff_inter_eq_empty]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:32: expected token
+     error: ././././TmpProjDir/Basic.lean:7:30: type expected, got
+       (g : G)
+     error: ././././TmpProjDir/Basic.lean:6:43: function expected at
+       Set
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:7:4: function expected at
+       IsBlock
+
+
+
+   ================================================================================
+[✗] row 57
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.isBlock_empty : IsBlock G (⊥ : Set X) := by
+     simp [IsBlock.def, Set.bot_eq_empty, Set.smul_set_empty]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:45: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✗] row 58
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsBlock.mk_notempty_one {B : Set X} :
+       IsBlock G B ↔ ∀ g : G, g • B ∩ B ≠ ∅ → g • B = B := by
+     simp_rw [IsBlock.def_one, Set.disjoint_iff_inter_eq_empty, or_iff_not_imp_right]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:29: expected token
+     error: ././././TmpProjDir/Basic.lean:7:27: type expected, got
+       (g : G)
+     error: ././././TmpProjDir/Basic.lean:6:47: function expected at
+       Set
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:7:4: function expected at
+       IsBlock
+
+
+
+   ================================================================================
+[✓] row 59
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.Setoid.Partition
+   import Mathlib.GroupTheory.GroupAction.Basic
+   import Mathlib.GroupTheory.GroupAction.Pointwise
+   import Mathlib.GroupTheory.GroupAction.SubMulAction
+   import Mathlib.GroupTheory.GroupAction.Blocks
+
+   namespace myNameSpace
+
+
+   open MulAction
+   open orbit
+   open scoped BigOperators Pointwise
+   variable {G : Type*} [Group G] {X : Type*} [MulAction G X]
+
+   theorem MulAction.orbit.pairwiseDisjoint :
+       (Set.range fun x : X => orbit G x).PairwiseDisjoint id := by
+     rintro s ⟨x, rfl⟩ t ⟨y, rfl⟩ h
+     contrapose! h
+     exact (orbit.eq_or_disjoint x y).resolve_right h
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rintro s ⟨x, rfl⟩ t ⟨y, rfl⟩ h",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "G : Type u_1 inst✝¹ : Group G X : Type u_2 inst✝ : MulAction G X ⊢ (Set.range fun x => orbit G x).PairwiseDisjoint id",
+      "endPos": {"line": 17, "column": 32}},
+     {"tactic": "contrapose! h",
+      "proofState": 1,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "case intro.intro\nG : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\nx y : X\nh : (fun x => orbit G x) x ≠ (fun x => orbit G x) y\n⊢ (Disjoint on id) ((fun x => orbit G x) x) ((fun x => orbit G x) y)",
+      "endPos": {"line": 18, "column": 15}},
+     {"tactic": "exact (orbit.eq_or_disjoint x y).resolve_right h",
+      "proofState": 2,
+      "pos": {"line": 19, "column": 2},
+      "goals":
+      "case intro.intro\nG : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\nx y : X\nh : ¬(Disjoint on id) (orbit G x) (orbit G y)\n⊢ orbit G x = orbit G y",
+      "endPos": {"line": 19, "column": 50}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 60
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.lt_inv_iff_lt_inv : a < b⁻¹ ↔ b < a⁻¹ := by
+     simpa only [inv_inv] using @ENNReal.inv_lt_inv a⁻¹ b
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa only [inv_inv] using @ENNReal.inv_lt_inv a⁻¹ b",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a < b⁻¹ ↔ b < a⁻¹",
+      "endPos": {"line": 12, "column": 54}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 61
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.isBlock_singleton (a : X) : IsBlock G ({a} : Set X) := by
+     simp [IsBlock.def, Classical.or_iff_not_imp_left]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:46: function expected at
+       IsBlock
+     term has type
+       ?m.9
+     error: ././././TmpProjDir/Basic.lean:7:8: invalid field notation, type is not of the form (C ...) where C is a constant
+       IsBlock
+     has type
+       x✝
+     error: ././././TmpProjDir/Basic.lean:7:2: simp made no progress
+
+
+
+   ================================================================================
+[✓] row 62
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.Setoid.Partition
+   import Mathlib.GroupTheory.GroupAction.Basic
+   import Mathlib.GroupTheory.GroupAction.Pointwise
+   import Mathlib.GroupTheory.GroupAction.SubMulAction
+   import Mathlib.GroupTheory.GroupAction.Blocks
+
+   namespace myNameSpace
+
+
+   open MulAction
+   open orbit
+   open scoped BigOperators Pointwise
+   variable {G : Type*} [Group G] {X : Type*} [MulAction G X]
+
+   theorem MulAction.orbit.eq_or_disjoint (a b : X) :
+       orbit G a = orbit G b ∨ Disjoint (orbit G a) (orbit G b) := by
+     apply (em (Disjoint (orbit G a) (orbit G b))).symm.imp _ id
+     simp (config := { contextual := true })
+       only [Set.not_disjoint_iff, ← orbit_eq_iff, forall_exists_index, and_imp, eq_comm, implies_true]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "apply (em (Disjoint (orbit G a) (orbit G b))).symm.imp _ id",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "G : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\na b : X\n⊢ orbit G a = orbit G b ∨ Disjoint (orbit G a) (orbit G b)",
+      "endPos": {"line": 17, "column": 61}},
+     {"tactic":
+      "simp (config := { contextual := true }) only [Set.not_disjoint_iff, ← orbit_eq_iff, forall_exists_index, and_imp,\n  eq_comm, implies_true]",
+      "proofState": 1,
+      "pos": {"line": 18, "column": 2},
+      "goals":
+      "G : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\na b : X\n⊢ ¬Disjoint (orbit G a) (orbit G b) → orbit G a = orbit G b",
+      "endPos": {"line": 19, "column": 100}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 63
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_lt_iff_inv_lt : a⁻¹ < b ↔ b⁻¹ < a := by
+     simpa only [inv_inv] using @ENNReal.inv_lt_inv a b⁻¹
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa only [inv_inv] using @ENNReal.inv_lt_inv a b⁻¹",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a⁻¹ < b ↔ b⁻¹ < a",
+      "endPos": {"line": 12, "column": 54}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 64
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.Setoid.Partition
+   import Mathlib.GroupTheory.GroupAction.Basic
+   import Mathlib.GroupTheory.GroupAction.Pointwise
+   import Mathlib.GroupTheory.GroupAction.SubMulAction
+   import Mathlib.GroupTheory.GroupAction.Blocks
+
+   namespace myNameSpace
+
+
+   open MulAction
+   open IsPartition
+   open scoped BigOperators Pointwise
+   variable {G : Type*} [Group G] {X : Type*} [MulAction G X]
+
+   theorem MulAction.IsPartition.of_orbits :
+       Setoid.IsPartition (Set.range fun a : X => orbit G a) := by
+     apply orbit.pairwiseDisjoint.isPartition_of_exists_of_ne_empty
+     · intro x
+       exact ⟨_, ⟨x, rfl⟩, mem_orbit_self x⟩
+     · rintro ⟨a, ha : orbit G a = ∅⟩
+       exact (MulAction.orbit_nonempty a).ne_empty ha
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "apply orbit.pairwiseDisjoint.isPartition_of_exists_of_ne_empty",
+      "proofState": 0,
+      "pos": {"line": 17, "column": 2},
+      "goals":
+      "G : Type u_1 inst✝¹ : Group G X : Type u_2 inst✝ : MulAction G X ⊢ Setoid.IsPartition (Set.range fun a => orbit G a)",
+      "endPos": {"line": 17, "column": 64}},
+     {"tactic": "intro x",
+      "proofState": 1,
+      "pos": {"line": 18, "column": 4},
+      "goals":
+      "case h₂\nG : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\n⊢ ∀ (a : X), ∃ x ∈ Set.range fun x => orbit G x, a ∈ x",
+      "endPos": {"line": 18, "column": 11}},
+     {"tactic": "exact ⟨_, ⟨x, rfl⟩, mem_orbit_self x⟩",
+      "proofState": 2,
+      "pos": {"line": 19, "column": 4},
+      "goals":
+      "case h₂\nG : Type u_1\ninst✝¹ : Group G\nX : Type u_2\ninst✝ : MulAction G X\nx : X\n⊢ ∃ x_1 ∈ Set.range fun x => orbit G x, x ∈ x_1",
+      "endPos": {"line": 19, "column": 41}},
+     {"tactic": "rintro ⟨a, ha : orbit G a = ∅⟩",
+      "proofState": 3,
+      "pos": {"line": 20, "column": 4},
+      "goals":
+      "case h₃ G : Type u_1 inst✝¹ : Group G X : Type u_2 inst✝ : MulAction G X ⊢ ∅ ∉ Set.range fun x => orbit G x",
+      "endPos": {"line": 20, "column": 34}},
+     {"tactic": "exact (MulAction.orbit_nonempty a).ne_empty ha",
+      "proofState": 4,
+      "pos": {"line": 21, "column": 4},
+      "goals":
+      "case h₃.intro G : Type u_1 inst✝¹ : Group G X : Type u_2 inst✝ : MulAction G X a : X ha : orbit G a = ∅ ⊢ False",
+      "endPos": {"line": 21, "column": 50}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 65
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.top_div_of_ne_top (h : a ≠ ∞) : ∞ / a = ∞ := by
+     simp [top_div, h]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [top_div, h]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ h : a ≠ ⊤ ⊢ ⊤ / a = ⊤",
+      "endPos": {"line": 12, "column": 19}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 66
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_le_one : a⁻¹ ≤ 1 ↔ 1 ≤ a := by
+     rw [inv_le_iff_inv_le, inv_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [inv_le_iff_inv_le, inv_one]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a⁻¹ ≤ 1 ↔ 1 ≤ a",
+      "endPos": {"line": 12, "column": 33}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 67
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.one_lt_inv : 1 < a⁻¹ ↔ a < 1 := by
+     rw [lt_inv_iff_lt_inv, inv_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [lt_inv_iff_lt_inv, inv_one]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ 1 < a⁻¹ ↔ a < 1",
+      "endPos": {"line": 12, "column": 33}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 68
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsBlock.subgroup {H : Subgroup G} {B : Set X} (hfB : IsBlock G B) :
+       IsBlock H B := by
+     rw [IsBlock.def_one]; rintro ⟨g, _⟩
+     simpa only using hfB.smul_eq_or_disjoint g
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:40: function expected at
+       Subgroup
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:6:57: function expected at
+       Set
+     term has type
+       ?m.10
+     error: ././././TmpProjDir/Basic.lean:6:71: function expected at
+
+
+
+   ================================================================================
+[✓] row 69
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_top : a / ∞ = 0 := by
+     rw [div_eq_mul_inv, inv_top, mul_zero]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [div_eq_mul_inv, inv_top, mul_zero]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a / ⊤ = 0",
+      "endPos": {"line": 12, "column": 40}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 70
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.one_le_inv : 1 ≤ a⁻¹ ↔ a ≤ 1 := by
+     rw [le_inv_iff_le_inv, inv_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [le_inv_iff_le_inv, inv_one]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ 1 ≤ a⁻¹ ↔ a ≤ 1",
+      "endPos": {"line": 12, "column": 33}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 71
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.sub_div (h : 0 < b → b < a → c ≠ 0) : (a - b) / c = a / c - b / c := by
+     simp_rw [div_eq_mul_inv]
+     exact ENNReal.sub_mul (by simpa using h)
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp_rw [div_eq_mul_inv]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals":
+      "a b c : ℝ≥0∞ h : 0 < b → b < a → c ≠ 0 ⊢ (a - b) / c = a / c - b / c",
+      "endPos": {"line": 12, "column": 26}},
+     {"tactic": "exact ENNReal.sub_mul (by simpa using h)",
+      "proofState": 1,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "a b c : ℝ≥0∞ h : 0 < b → b < a → c ≠ 0 ⊢ (a - b) * c⁻¹ = a * c⁻¹ - b * c⁻¹",
+      "endPos": {"line": 13, "column": 42}},
+     {"tactic": "simpa using h",
+      "proofState": 2,
+      "pos": {"line": 13, "column": 28},
+      "goals": "a b c : ℝ≥0∞ h : 0 < b → b < a → c ≠ 0 ⊢ 0 < b → b < a → c⁻¹ ≠ ⊤",
+      "endPos": {"line": 13, "column": 41}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 72
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_mul_le_one (a : ℝ≥0∞) : a⁻¹ * a ≤ 1 := by
+     simp [mul_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [mul_comm]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a⁻¹ * a ≤ 1",
+      "endPos": {"line": 12, "column": 17}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 73
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.IsBlock.smul_eq_or_disjoint {B : Set X} (hB : IsBlock G B) (g : G) :
+       g • B = B ∨ Disjoint (g • B) B := by
+     rw [IsBlock.def] at hB
+     simpa only [one_smul] using hB g 1
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:6: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 74
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.le_inv_iff_le_inv : a ≤ b⁻¹ ↔ b ≤ a⁻¹ := by
+     simpa only [inv_inv] using @ENNReal.inv_le_inv a⁻¹ b
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa only [inv_inv] using @ENNReal.inv_le_inv a⁻¹ b",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a ≤ b⁻¹ ↔ b ≤ a⁻¹",
+      "endPos": {"line": 12, "column": 54}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 75
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.mul_div_mul_right (a b : ℝ≥0∞) (hc : c ≠ 0) (hc' : c ≠ ⊤) :
+       a * c / (b * c) = a / b := by
+     rw [div_eq_mul_inv, div_eq_mul_inv, ENNReal.mul_inv (Or.inr hc') (Or.inr hc), mul_mul_mul_comm,
+       ENNReal.mul_inv_cancel hc hc', mul_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "rw [div_eq_mul_inv, div_eq_mul_inv, ENNReal.mul_inv (Or.inr hc') (Or.inr hc), mul_mul_mul_comm,\n  ENNReal.mul_inv_cancel hc hc', mul_one]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "c a b : ℝ≥0∞ hc : c ≠ 0 hc' : c ≠ ⊤ ⊢ a * c / (b * c) = a / b",
+      "endPos": {"line": 14, "column": 43}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 76
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_lt_one : a⁻¹ < 1 ↔ 1 < a := by
+     rw [inv_lt_iff_inv_lt, inv_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [inv_lt_iff_inv_lt, inv_one]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a⁻¹ < 1 ↔ 1 < a",
+      "endPos": {"line": 12, "column": 33}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 77
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_mul_ne_top (a : ℝ≥0∞) : a⁻¹ * a ≠ ⊤ := by
+     simp [mul_comm]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [mul_comm]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a⁻¹ * a ≠ ⊤",
+      "endPos": {"line": 12, "column": 17}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 78
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.top_div : ∞ / a = if a = ∞ then 0 else ∞ := by
+     simp [div_eq_mul_inv, top_mul']
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [div_eq_mul_inv, top_mul']",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ ⊤ / a = if a = ⊤ then 0 else ⊤",
+      "endPos": {"line": 12, "column": 33}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 79
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_pos_iff : 0 < a / b ↔ a ≠ 0 ∧ b ≠ ∞ := by
+     simp [pos_iff_ne_zero, not_or]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [pos_iff_ne_zero, not_or]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ 0 < a / b ↔ a ≠ 0 ∧ b ≠ ⊤",
+      "endPos": {"line": 12, "column": 32}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 80
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.mul_lt_of_lt_div (h : a < b / c) : a * c < b := by
+     contrapose! h
+     exact ENNReal.div_le_of_le_mul h
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "contrapose! h",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b c : ℝ≥0∞ h : a < b / c ⊢ a * c < b",
+      "endPos": {"line": 12, "column": 15}},
+     {"tactic": "exact ENNReal.div_le_of_le_mul h",
+      "proofState": 1,
+      "pos": {"line": 13, "column": 2},
+      "goals": "a b c : ℝ≥0∞ h : b ≤ a * c ⊢ b / c ≤ a",
+      "endPos": {"line": 13, "column": 34}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 81
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MeasureTheory.rnDeriv_tilted_left {ν : Measure α} [SigmaFinite μ] [SigmaFinite ν] (hfν : AEMeasurable f ν) :
+       (μ.tilted f).rnDeriv ν
+         =ᵐ[ν] fun x ↦ ENNReal.ofReal (exp (f x) / (∫ x, exp (f x) ∂μ)) * μ.rnDeriv ν x := by
+     let g := fun x ↦ ENNReal.ofReal (exp (f x) / (∫ x, exp (f x) ∂μ))
+     refine Measure.rnDeriv_withDensity_left (μ := μ) (ν := ν) (f := g) ?_ ?_
+     · exact ((measurable_exp.comp_aemeasurable hfν).div_const _).ennreal_ofReal
+     · exact ae_of_all _ (fun x ↦ by simp [g])
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:8:7: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✗] row 82
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem MulAction.orbit.isBlock_of_normal {N : Subgroup G} [N.Normal] (a : X) :
+       IsBlock G (orbit N a) := by
+     rw [IsBlock.def_one]
+     intro g
+     rw [smul_orbit_eq_orbit_smul]
+     apply orbit.eq_or_disjoint
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:60: invalid binder annotation, type is not a class instance
+       ?m.9
+     use the command `set_option checkBinderAnnotations false` to disable the check
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 83
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.mul_le_of_le_div (h : a ≤ b / c) : a * c ≤ b := by
+     rw [← inv_inv c]
+     exact div_le_of_le_mul h
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [← inv_inv c]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b c : ℝ≥0∞ h : a ≤ b / c ⊢ a * c ≤ b",
+      "endPos": {"line": 12, "column": 18}},
+     {"tactic": "exact div_le_of_le_mul h",
+      "proofState": 1,
+      "pos": {"line": 13, "column": 2},
+      "goals": "a b c : ℝ≥0∞ h : a ≤ b / c ⊢ a * c⁻¹⁻¹ ≤ b",
+      "endPos": {"line": 13, "column": 26}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 84
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_le_iff_inv_le : a⁻¹ ≤ b ↔ b⁻¹ ≤ a := by
+     simpa only [inv_inv] using @ENNReal.inv_le_inv a b⁻¹
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simpa only [inv_inv] using @ENNReal.inv_le_inv a b⁻¹",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a⁻¹ ≤ b ↔ b⁻¹ ≤ a",
+      "endPos": {"line": 12, "column": 54}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 85
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_two_add_inv_two : (2 : ℝ≥0∞)⁻¹ + 2⁻¹ = 1 := by
+     rw [← two_mul, ← div_eq_mul_inv, ENNReal.div_self two_ne_zero two_ne_top]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "rw [← two_mul, ← div_eq_mul_inv, ENNReal.div_self two_ne_zero two_ne_top]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "⊢ 2⁻¹ + 2⁻¹ = 1",
+      "endPos": {"line": 12, "column": 75}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 86
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem NumberField.ComplexEmbedding.IsReal.comp (f : k →+* K) {φ : K →+* ℂ} (hφ : IsReal φ) :
+       IsReal (φ.comp f) := by
+     ext1 x; simpa using RingHom.congr_fun hφ (f x)
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:57: unexpected token '+'; expected term
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 87
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.mul_div_mul_left (a b : ℝ≥0∞) (hc : c ≠ 0) (hc' : c ≠ ⊤) :
+       c * a / (c * b) = a / b := by
+     rw [div_eq_mul_inv, div_eq_mul_inv, ENNReal.mul_inv (Or.inl hc) (Or.inl hc'), mul_mul_mul_comm,
+       ENNReal.mul_inv_cancel hc hc', one_mul]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "rw [div_eq_mul_inv, div_eq_mul_inv, ENNReal.mul_inv (Or.inl hc) (Or.inl hc'), mul_mul_mul_comm,\n  ENNReal.mul_inv_cancel hc hc', one_mul]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "c a b : ℝ≥0∞ hc : c ≠ 0 hc' : c ≠ ⊤ ⊢ c * a / (c * b) = a / b",
+      "endPos": {"line": 14, "column": 43}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 88
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_ne_zero : a / b ≠ 0 ↔ a ≠ 0 ∧ b ≠ ⊤ := by
+     rw [← pos_iff_ne_zero, div_pos_iff]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [← pos_iff_ne_zero, div_pos_iff]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a / b ≠ 0 ↔ a ≠ 0 ∧ b ≠ ⊤",
+      "endPos": {"line": 12, "column": 37}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 89
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_eq_zero_iff : a / b = 0 ↔ a = 0 ∨ b = ∞ := by
+     simp [div_eq_mul_inv]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [div_eq_mul_inv]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a / b = 0 ↔ a = 0 ∨ b = ⊤",
+      "endPos": {"line": 12, "column": 23}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 90
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.div_eq_top : a / b = ∞ ↔ a ≠ 0 ∧ b = 0 ∨ a = ∞ ∧ b ≠ ∞ := by
+     simp [div_eq_mul_inv, ENNReal.mul_eq_top]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp [div_eq_mul_inv, ENNReal.mul_eq_top]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a b : ℝ≥0∞ ⊢ a / b = ⊤ ↔ a ≠ 0 ∧ b = 0 ∨ a = ⊤ ∧ b ≠ ⊤",
+      "endPos": {"line": 12, "column": 43}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 91
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem NumberField.InfinitePlace.norm_embedding_eq (w : InfinitePlace K) (x : K) :
+       ‖(embedding w) x‖ = w x := by
+     nth_rewrite 2 [← mk_embedding w]
+     rfl
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:7:4: expected token
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✓] row 92
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.inv_le_iff_le_mul (h₁ : b = ∞ → a ≠ 0) (h₂ : a = ∞ → b ≠ 0) : a⁻¹ ≤ b ↔ 1 ≤ a * b := by
+     rw [← one_div, ENNReal.div_le_iff_le_mul, mul_comm]
+     exacts [or_not_of_imp h₁, not_or_of_imp h₂]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [← one_div, ENNReal.div_le_iff_le_mul, mul_comm]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals":
+      "a b : ℝ≥0∞ h₁ : b = ⊤ → a ≠ 0 h₂ : a = ⊤ → b ≠ 0 ⊢ a⁻¹ ≤ b ↔ 1 ≤ a * b",
+      "endPos": {"line": 12, "column": 53}},
+     {"tactic": "exacts [or_not_of_imp h₁, not_or_of_imp h₂]",
+      "proofState": 1,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "case hb0\na b : ℝ≥0∞\nh₁ : b = ⊤ → a ≠ 0\nh₂ : a = ⊤ → b ≠ 0\n⊢ a ≠ 0 ∨ b ≠ ⊤\ncase hbt a b : ℝ≥0∞ h₁ : b = ⊤ → a ≠ 0 h₂ : a = ⊤ → b ≠ 0 ⊢ a ≠ ⊤ ∨ b ≠ 0",
+      "endPos": {"line": 13, "column": 45}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 93
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.ENNReal.Operations
+   import Mathlib.Data.ENNReal.Inv
+
+   namespace myNameSpace
+
+
+   open ENNReal
+   open Set NNReal
+   variable {a b c d : ℝ≥0∞} {r p q : ℝ≥0}
+
+   theorem ENNReal.add_halves (a : ℝ≥0∞) : a / 2 + a / 2 = a := by
+     rw [div_eq_mul_inv, ← mul_add, inv_two_add_inv_two, mul_one]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [div_eq_mul_inv, ← mul_add, inv_two_add_inv_two, mul_one]",
+      "proofState": 0,
+      "pos": {"line": 12, "column": 2},
+      "goals": "a : ℝ≥0∞ ⊢ a / 2 + a / 2 = a",
+      "endPos": {"line": 12, "column": 62}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✗] row 94
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem NumberField.InfinitePlace.not_isReal_of_mk_isComplex {φ : K →+* ℂ} (h : IsComplex (mk φ)) :
+       ¬ ComplexEmbedding.IsReal φ := by
+     rwa [← isComplex_mk_iff]
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:69: unexpected token '+'; expected term
+     error: Lean exited with code 1
+     Some required builds logged failures:
+     - TmpProjDir.Basic
+     error: build failed
+
+
+
+   ================================================================================
+[✗] row 95
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   namespace myNameSpace
+
+   Unable to analyze
+
+   theorem NumberField.InfinitePlace.isReal_or_isComplex (w : InfinitePlace K) : IsReal w ∨ IsComplex w := by
+     rw [← not_isReal_iff_isComplex]; exact em _
+
+   end myNameSpace
+   ----------------------------------------
+   ‣ error: ✖ [11/13] Building TmpProjDir.Basic
+     trace: .> LEAN_PATH=././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/Cli/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/packages/REPL/.lake/build/lib:././.lake/build/lib DYLD_LIBRARY_PATH= /Users/jprthwsh/.elan/toolchains/leanprover--lean4---v4.11.0/bin/lean ././././TmpProjDir/Basic.lean -R ./././. -o ././.lake/build/lib/TmpProjDir/Basic.olean -i ././.lake/build/lib/TmpProjDir/Basic.ilean -c ././.lake/build/ir/TmpProjDir/Basic.c --json
+     error: ././././TmpProjDir/Basic.lean:4:0: unexpected identifier; expected command
+     error: ././././TmpProjDir/Basic.lean:6:59: function expected at
+       InfinitePlace
+     term has type
+       ?m.3
+     error: ././././TmpProjDir/Basic.lean:6:78: function expected at
+       IsReal
+     term has type
+       ?m.10
+     error: ././././TmpProjDir/Basic.lean:6:89: function expected at
+
+
+
+   ================================================================================
+[✓] row 96
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Order.Filter.Cofinite
+   import Mathlib.Topology.Bornology.Basic
+
+   namespace myNameSpace
+
+
+   open Bornology
+   open Set Filter
+   variable {ι α β : Type*}
+   variable {_ : Bornology α} {s t : Set α} {x : α}
+
+   theorem Bornology.nonempty_of_not_isBounded (h : ¬IsBounded s) : s.Nonempty := by
+     rw [nonempty_iff_ne_empty]
+     rintro rfl
+     exact h isBounded_empty
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [nonempty_iff_ne_empty]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_2 x✝ : Bornology α s : Set α h : ¬IsBounded s ⊢ s.Nonempty",
+      "endPos": {"line": 13, "column": 28}},
+     {"tactic": "rintro rfl",
+      "proofState": 1,
+      "pos": {"line": 14, "column": 2},
+      "goals": "α : Type u_2 x✝ : Bornology α s : Set α h : ¬IsBounded s ⊢ s ≠ ∅",
+      "endPos": {"line": 14, "column": 12}},
+     {"tactic": "exact h isBounded_empty",
+      "proofState": 2,
+      "pos": {"line": 15, "column": 2},
+      "goals": "α : Type u_2 x✝ : Bornology α h : ¬IsBounded ∅ ⊢ False",
+      "endPos": {"line": 15, "column": 25}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 97
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Order.Filter.Cofinite
+   import Mathlib.Topology.Bornology.Basic
+
+   namespace myNameSpace
+
+
+   open Bornology
+   open Set Filter
+   variable {ι α β : Type*}
+   variable {_ : Bornology α} {s t : Set α} {x : α}
+
+   theorem Bornology.isBounded_union : IsBounded (s ∪ t) ↔ IsBounded s ∧ IsBounded t := by
+     simp only [← isCobounded_compl_iff, compl_union, isCobounded_inter]
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic":
+      "simp only [← isCobounded_compl_iff, compl_union, isCobounded_inter]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals":
+      "α : Type u_2 x✝ : Bornology α s t : Set α ⊢ IsBounded (s ∪ t) ↔ IsBounded s ∧ IsBounded t",
+      "endPos": {"line": 13, "column": 69}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 98
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Order.Filter.Cofinite
+   import Mathlib.Topology.Bornology.Basic
+
+   namespace myNameSpace
+
+
+   open Bornology
+   open Set Filter
+   variable {ι α β : Type*}
+   variable {_ : Bornology α} {s t : Set α} {x : α}
+
+   theorem Bornology.isBounded_empty : IsBounded (∅ : Set α) := by
+     rw [isBounded_def, compl_empty]
+     exact univ_mem
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "rw [isBounded_def, compl_empty]",
+      "proofState": 0,
+      "pos": {"line": 13, "column": 2},
+      "goals": "α : Type u_2 x✝ : Bornology α ⊢ IsBounded ∅",
+      "endPos": {"line": 13, "column": 33}},
+     {"tactic": "exact univ_mem",
+      "proofState": 1,
+      "pos": {"line": 14, "column": 2},
+      "goals": "α : Type u_2 x✝ : Bornology α ⊢ univ ∈ cobounded α",
+      "endPos": {"line": 14, "column": 16}}],
+    "env": 0}
+   ----------------------------------------
+
+
+
+   ================================================================================
+[✓] row 99
+   ----------------------------------------
+   >> Lean source:
+   ----------------------------------------
+   import Mathlib.Data.Finset.Lattice
+   import Mathlib.Data.Set.Finite
+   import Mathlib.Order.Closure
+   import Mathlib.Order.UpperLower.Basic
+   import Mathlib.Order.SupClosed
+
+   namespace myNameSpace
+
+
+
+   variable {F α β : Type*}
+   variable [SemilatticeSup α] [SemilatticeSup β]
+   variable {ι : Sort*} {S : Set (Set α)} {f : ι → Set α} {s t : Set α} {a : α}
+   open Set
+   open Set
+   variable {ι : Type*} {f : ι → α} {s : Set α} {t : Finset ι} {a : α}
+   open Finset
+   open Finset
+   variable [SemilatticeInf α] [SemilatticeInf β]
+   variable {ι : Sort*} {S : Set (Set α)} {f : ι → Set α} {s t : Set α} {a : α}
+   open Set
+   open Set
+   variable {ι : Type*} {f : ι → α} {s : Set α} {t : Finset ι} {a : α}
+   open Finset
+   open Finset
+   open Finset OrderDual
+   variable {ι : Sort*} [Lattice α] [Lattice β] {S : Set (Set α)} {f : ι → Set α} {s t : Set α} {a : α}
+   open Set
+   variable [LinearOrder α]
+   open Finset
+   variable [SemilatticeSup α] [SemilatticeSup β] {s t : Set α} {a b : α}
+   variable [SemilatticeInf α] [SemilatticeInf β] {s t : Set α} {a b : α}
+   variable [Lattice α] {s t : Set α}
+
+   theorem latticeClosure_empty : latticeClosure (∅ : Set α) = ∅ := by
+     simp
+
+   end myNameSpace
+   ----------------------------------------
+   >> REPL ran successfully!
+   ----------------------------------------
+   {"tactics":
+    [{"tactic": "simp",
+      "proofState": 0,
+      "pos": {"line": 36, "column": 2},
+      "goals":
+      "α : Type u_2\ninst✝⁶ : SemilatticeSup α\ninst✝⁵ : SemilatticeInf α\ninst✝⁴ : Lattice α\ninst✝³ : LinearOrder α\ninst✝² : SemilatticeSup α\ninst✝¹ : SemilatticeInf α\ninst✝ : Lattice α\n⊢ latticeClosure ∅ = ∅",
+      "endPos": {"line": 36, "column": 6}}],
+    "messages":
+    [{"severity": "warning",
+      "pos": {"line": 35, "column": 0},
+      "endPos": {"line": 36, "column": 6},
+      "data":
+      "automatically included section variable(s) unused in theorem 'myNameSpace.latticeClosure_empty':\n  [SemilatticeSup α]\n  [SemilatticeInf α]\n  [Lattice α]\n  [LinearOrder α]\n  [SemilatticeSup α]\n  [SemilatticeInf α]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [SemilatticeSup\n  α] [SemilatticeInf α] [Lattice α] [LinearOrder α] [SemilatticeSup α] [SemilatticeInf α] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`"}],
+    "env": 0}
+   ----------------------------------------
+
+*** Compiled 80/100 successfully.
+
+*** Computed DAG for 80/100 successfully.
+Saved results to herald_lean_dag.csv
